@@ -1,2 +1,32 @@
 Hotwire: Quick and dirty event wireups for AS3
 
+Sample Usage:
+
+---
+
+package {
+	import com.lukesh.flash.utils.Hotwire;
+	
+	import flash.display.Sprite;
+	import flash.events.Event;
+
+	[SWF(width='800', height='800', backgroundColor='#FFFFFF', frameRate='60')]
+	public class HotwireDemo extends Sprite {
+
+		protected var hotwire : Hotwire;
+
+		public function HotwireDemo() {
+			super();
+			hotwire = new Hotwire(this);
+			hotwire.wire(Event.REMOVED, Event.ENTER_FRAME);
+		}
+
+		public function handleEnterFrame(event : Event) : void {
+			trace("Event.ENTER_FRAME");
+		}
+
+		public function handleRemoved(event : Event) : void {
+			hotwire.unwire();
+		}
+	}
+}
