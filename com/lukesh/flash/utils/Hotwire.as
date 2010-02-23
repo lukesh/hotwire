@@ -36,6 +36,7 @@ package com.lukesh.flash.utils {
 				a[0] = String(a[0]).toUpperCase();
 				return a.join("");
 			})(eventName) : eventName;
+			handlerName = handlerName.replace(".", "_");
 			return handlerName;
 		}
 
