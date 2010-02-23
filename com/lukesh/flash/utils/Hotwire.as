@@ -41,7 +41,7 @@ package com.lukesh.flash.utils {
 
 		protected function _wire(arr : Array, weak : Boolean) : void {
 			for (var i : int; i < arr.length; i++) {
-				if (events.indexOf(arr[i])) {
+				if (events.indexOf(arr[i]) > -1) {
 					dispatcher.removeEventListener(arr[i], handler[deriveHandlerName(arr[i])]);
 				} else {
 					events.push(arr[i]);
@@ -53,7 +53,7 @@ package com.lukesh.flash.utils {
 		protected function _unwire(arr : Array) : void {
 			for (var i : int; i < arr.length; i++) {
 				dispatcher.removeEventListener(arr[i], handler[deriveHandlerName(arr[i])]);
-				if (events.indexOf(arr[i])) {
+				if (events.indexOf(arr[i]) > -1) {
 					events.splice(events.indexOf(arr[i]));
 				}
 			}
